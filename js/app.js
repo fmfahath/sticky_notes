@@ -13,4 +13,10 @@ function createTextElement(id,contant){
     textElement.classList.add('sticky');
     textElement.value = contant;
     return textElement;
-}
+}   
+
+//getting each data from JSON array and passing that value to create new textarea's function
+getAppStorage().forEach(element => {
+    const newTextElement = createTextElement(element.id, element.content);
+    container.insertBefore(newTextElement,addBtn);
+});
