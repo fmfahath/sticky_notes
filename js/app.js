@@ -27,17 +27,22 @@ getAppStorage().forEach(element => {
 
 //Add Button function
 function addSticky(){
-    // const notes = getAppStorage();
+    const notes = getAppStorage();
     const newElementObject = {
         id : Math.floor(Math.random() * 10000),
-        content : "",
+        content : ""
     };
 
     const addNewTextElement = createTextElement(newElementObject.id, newElementObject.content);
     container.insertBefore(addNewTextElement,addBtn);
+    notes.push(newElementObject);
+    saveNotes(notes);
 };
 
 
 addBtn.addEventListener('click',()=>addSticky());
 
-
+//function for saving stikey notes into JSON file
+function saveNotes(notes){
+    localStorage.setItem('joes-app', JSON.stringify(notes));
+}
