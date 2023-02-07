@@ -12,6 +12,7 @@ function createTextElement(id,contant){
     const textElement = document.createElement('textarea');
     textElement.classList.add('sticky');
     textElement.value = contant;
+    textElement.placeholder = "Enter Your Notes";
     return textElement;
 }   
 
@@ -20,3 +21,21 @@ getAppStorage().forEach(element => {
     const newTextElement = createTextElement(element.id, element.content);
     container.insertBefore(newTextElement,addBtn);
 });
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------
+// Add sticky notes by clicking add button
+
+function addSticky(){
+    // const notes = getAppStorage();
+    const newElementObject = {
+        id : Math.floor(Math.random() * 10000),
+        content : "",
+    };
+
+    const addNewTextElement = createTextElement(newElementObject.id, newElementObject.content);
+    container.insertBefore(addNewTextElement,addBtn);
+};
+
+addBtn.addEventListener('click',()=>addSticky());
+
+
