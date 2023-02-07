@@ -3,6 +3,9 @@
 Bug : new elemnts (textarea) are adding after the button
 Bug Branch: main
 Bug commit ID : 7fc5563
-Status : 
-Bug fixed ID : 
+Status : Fixed
+Bug fixed ID : f27fd57
+Solution Description : add button's class added on main/index.html - line 24
 ---------------------------------------------------------------------------------------------------------------------------------
+
+02. 

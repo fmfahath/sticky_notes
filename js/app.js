@@ -25,6 +25,7 @@ getAppStorage().forEach(element => {
 // ------------------------------------------------------------------------------------------------------------------------------------------------------
 // Add sticky notes by clicking add button
 
+//Add Button function
 function addSticky(){
     // const notes = getAppStorage();
     const newElementObject = {
@@ -35,6 +36,7 @@ function addSticky(){
     const addNewTextElement = createTextElement(newElementObject.id, newElementObject.content);
     container.insertBefore(addNewTextElement,addBtn);
 };
+
 
 addBtn.addEventListener('click',()=>addSticky());
 
