@@ -8,11 +8,17 @@ function getAppStorage(){
 }
 
 //create a new textarea element
-function createTextElement(id,contant){
+function createTextElement(id,content){
     const textElement = document.createElement('textarea');
     textElement.classList.add('sticky');
-    textElement.value = contant;
+    textElement.value = content;
     textElement.placeholder = "Enter Your Notes";
+
+    //update or save text of sticky note
+    textElement.addEventListener('change', ()=>{
+        updateNote(id,textElement.value);
+    })
+
     return textElement;
 }   
 
@@ -44,5 +50,13 @@ addBtn.addEventListener('click',()=>addSticky());
 
 //function for saving stikey notes into JSON file
 function saveNotes(notes){
-    localStorage.setItem('joes-app', JSON.stringify(notes));
+    localStorage.setItem('joes-app', JSON.stringify(notes)); 
+}
+ 
+//function for update or save sticky note's texts
+function updateNote(id, content){
+    const notes = getAppStorage();
+    const updateElement = notes.filter((note) => note.id==id)[0];  
+    updateElement.content = content;
+    saveNotes(notes);
 }
