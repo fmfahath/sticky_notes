@@ -19,6 +19,16 @@ function createTextElement(id,content){
         updateNote(id,textElement.value);
     })
 
+    //double click to delete element
+    textElement.addEventListener('dblclick', ()=>{
+        const check = confirm("Are you sure to delete this note ?");
+        console.log(check);
+        if(check){
+            deleteNote(id,textElement);
+        }
+    });
+
+
     return textElement;
 }   
 
@@ -59,4 +69,11 @@ function updateNote(id, content){
     const updateElement = notes.filter((note) => note.id==id)[0];  
     updateElement.content = content;
     saveNotes(notes);
+}
+
+//Double click delete note function
+function  deleteNote(id,textElement){
+    const notes = getAppStorage().filter((note) => note.id!=id);
+    saveNotes(notes);
+    container.removeChild(textElement);
 }
