@@ -11,6 +11,12 @@ body{
     background-color: #f6b6a3;
 }
 
+#information{
+    padding: 10px;
+    font-size: 0.8rem;
+    color: #fe0303;
+}
+
 #container{
     padding: 20px;
     display: grid;
